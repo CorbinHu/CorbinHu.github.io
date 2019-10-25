@@ -40,28 +40,6 @@
   </entry>
   
   <entry>
-    <title>Ubuntu软件安装命令</title>
-    <link href="http://yoursite.com/2019/05/26/%C2%96%C2%96%C2%96Ubuntu%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85%E5%91%BD%E4%BB%A4/"/>
-    <id>http://yoursite.com/2019/05/26/Ubuntu软件安装命令/</id>
-    <published>2019-05-26T08:52:59.000Z</published>
-    <updated>2019-05-26T08:55:52.558Z</updated>
-    
-    <content type="html"><![CDATA[<h5 id="1-切换软件源-18-04-TLS"><a href="#1-切换软件源-18-04-TLS" class="headerlink" title="(1) 切换软件源 18.04 TLS"></a>(1) 切换软件源 18.04 TLS</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 中科大的源比较好用</span><br><span class="line">备份默认源：$ sudo cp /etc/apt/sources.list /etc/apt/sources.list.bak </span><br><span class="line">修改源：$ sudo vim /etc/apt/sources.list</span><br></pre></td></tr></table></figure><a id="more"></a><h5 id="2-安装谷歌浏览器"><a href="#2-安装谷歌浏览器" class="headerlink" title="(2) 安装谷歌浏览器"></a>(2) 安装谷歌浏览器</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> sudo wget http://www.linuxidc.com/files/repo/google-chrome.list -P /etc/apt/sources.list.d/</span><br><span class="line"><span class="meta">$</span> wget -q -O - https://dl.google.com/linux/linux_signing_key.pub  | sudo apt-key add</span><br><span class="line"><span class="meta">$</span> sudo apt install google-chrome-stabl</span><br><span class="line"><span class="meta">$</span> sudo apt-get update</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h5 id=&quot;1-切换软件源-18-04-TLS&quot;&gt;&lt;a href=&quot;#1-切换软件源-18-04-TLS&quot; class=&quot;headerlink&quot; title=&quot;(1) 切换软件源 18.04 TLS&quot;&gt;&lt;/a&gt;(1) 切换软件源 18.04 TLS&lt;/h5&gt;&lt;figure class=&quot;highlight shell&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;#&lt;/span&gt; 中科大的源比较好用&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;备份默认源：$ sudo cp /etc/apt/sources.list /etc/apt/sources.list.bak &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;修改源：$ sudo vim /etc/apt/sources.list&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-    
-    </summary>
-    
-      <category term="liunx" scheme="http://yoursite.com/categories/liunx/"/>
-    
-    
-      <category term="ubunutu" scheme="http://yoursite.com/tags/ubunutu/"/>
-    
-  </entry>
-  
-  <entry>
     <title>从零搭建恶意软件检测系统Cuckoo2.0.6</title>
     <link href="http://yoursite.com/2019/05/26/%E4%BB%8E%E9%9B%B6%E6%90%AD%E5%BB%BA%E6%81%B6%E6%84%8F%E8%BD%AF%E4%BB%B6%E6%A3%80%E6%B5%8B%E7%B3%BB%E7%BB%9FCuckoo2.0.6/"/>
     <id>http://yoursite.com/2019/05/26/从零搭建恶意软件检测系统Cuckoo2.0.6/</id>
