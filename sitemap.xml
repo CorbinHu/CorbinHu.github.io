@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/2019/05/26/system/</loc>
+    
+    <lastmod>2019-11-04T07:38:06.087Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2019/05/26/Building-a-malware-detection-system/</loc>
     
     <lastmod>2019-11-04T07:31:20.596Z</lastmod>
