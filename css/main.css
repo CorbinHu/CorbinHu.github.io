@@ -1764,7 +1764,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #6b4e75;
+  background: #edb03c;
 }
 .feed-link,
 .chat {
@@ -2959,20 +2959,4 @@ ul.breadcrumb li+li:last-child {
   .pagination {
     margin: 8px 0 0;
   }
-}
-.hider_title {
-  font-family: "Microsoft Yahei";
-  cursor: pointer;
-}
-.close:before {
-  content: "▼";
-}
-.open:before {
-  content: "▲";
-}
-.post-body div.fold_hider {
-  margin-left: 1.5em;
-}
-.post-body div.fold {
-  margin-top: -15px;
 }
