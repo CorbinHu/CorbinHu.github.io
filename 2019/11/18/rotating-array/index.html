@@ -104,7 +104,7 @@
 <meta property="og:site_name" content="HBC&#39;Blog">
 <meta property="og:description" content="题目描述 &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;给定一个数组，将数组中的元素向右移动 k 个位置，其中 k 是非负数。  实例1：  输入: [1,2,3,4,5,6,7] 和 k = 3输出: [5,6,7,1,2,3,4]解释:向右旋转 1 步: [7,1,2,3,4,5,6]向右旋转 2 步: [6,7,1,2,3,4,5]向右旋转 3 步: [5,6,7,1,2,3,4]">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-11-18T09:02:41.252Z">
+<meta property="og:updated_time" content="2019-11-18T09:04:56.922Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="LeetCode189 旋转数组">
 <meta name="twitter:description" content="题目描述 &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;给定一个数组，将数组中的元素向右移动 k 个位置，其中 k 是非负数。  实例1：  输入: [1,2,3,4,5,6,7] 和 k = 3输出: [5,6,7,1,2,3,4]解释:向右旋转 1 步: [7,1,2,3,4,5,6]向右旋转 2 步: [6,7,1,2,3,4,5]向右旋转 3 步: [5,6,7,1,2,3,4]">
@@ -369,7 +369,7 @@
                 
               
 
-              <time title="创建时间：2019-11-18 16:25:51 / 修改时间：17:02:41" itemprop="dateCreated datePublished" datetime="2019-11-18T16:25:51+08:00">2019-11-18</time>
+              <time title="创建时间：2019-11-18 16:25:51 / 修改时间：17:04:56" itemprop="dateCreated datePublished" datetime="2019-11-18T16:25:51+08:00">2019-11-18</time>
             
 
             
@@ -438,7 +438,11 @@
 <blockquote>
 <p>输入: [1,2,3,4,5,6,7] 和 k = 3<br>输出: [5,6,7,1,2,3,4]<br>解释:<br>向右旋转 1 步: [7,1,2,3,4,5,6]<br>向右旋转 2 步: [6,7,1,2,3,4,5]<br>向右旋转 3 步: [5,6,7,1,2,3,4]</p>
 </blockquote>
-<p><strong>实例2：</strong><br>&gt;<br>输入: [-1,-100,3,99] 和 k = 2<br>输出: [3,99,-1,-100]<br>解释:<br>向右旋转 1 步: [99,-1,-100,3]<br>向右旋转 2 步: [3,99,-1,-100]<br>&gt;</p>
+<a id="more"></a>
+<p><strong>实例2：</strong></p>
+<blockquote>
+<p>输入: [-1,-100,3,99] 和 k = 2<br>输出: [3,99,-1,-100]<br>解释:<br>向右旋转 1 步: [99,-1,-100,3]<br>向右旋转 2 步: [3,99,-1,-100]</p>
+</blockquote>
 <h3 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h3><h4 id="直接遍历移动"><a href="#直接遍历移动" class="headerlink" title="直接遍历移动"></a>直接遍历移动</h4><p><strong>算法思想：</strong>循环 <em>k</em> 次，每次循环将数组中的数据向后移动一位，最后一位移动到第一位。</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">rotate</span><span class="params">(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> k)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(nums==<span class="keyword">null</span>||nums.length==<span class="number">0</span>) <span class="keyword">return</span>;</span><br><span class="line">        k = k % nums.length;</span><br><span class="line">        <span class="keyword">while</span>(k&gt;<span class="number">0</span>)&#123;</span><br><span class="line">            <span class="keyword">int</span> temp = nums[nums.length-<span class="number">1</span>];</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> i=nums.length-<span class="number">1</span>;i&gt;<span class="number">0</span>;i--)&#123;</span><br><span class="line">                nums[i] = nums[i-<span class="number">1</span>];</span><br><span class="line">            &#125;</span><br><span class="line">            nums[<span class="number">0</span>] = temp;</span><br><span class="line">            k--;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h4 id="一次移动到相应的位置"><a href="#一次移动到相应的位置" class="headerlink" title="一次移动到相应的位置"></a>一次移动到相应的位置</h4><p><strong>算法思想：</strong>将第 <em>i</em> 位数据直接移动到第 <em>i + k</em> 位。算法总共移动次数为 <em>N - 1</em> 次。</p>
@@ -493,6 +497,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/11/18/rotating-array-1/" rel="prev" title="rotating_array">
+                rotating_array <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -561,7 +569,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">5</span>
+                    <span class="site-state-item-count">6</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
