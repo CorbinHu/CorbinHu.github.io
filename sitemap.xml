@@ -2,16 +2,37 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/2019/11/29/BinaryTree/</loc>
+    
+    <lastmod>2020-04-16T08:39:27.678Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2019/11/13/Summary-of-Sorting-Algorithms/</loc>
+    
+    <lastmod>2020-04-15T09:21:35.151Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2019/06/03/server%E5%AE%89%E8%A3%85%E6%A1%8C%E9%9D%A2%E5%B9%B6%E8%BF%9B%E8%A1%8C%E8%BF%9C%E7%A8%8B%E8%AE%BF%E9%97%AE/</loc>
+    
+    <lastmod>2019-11-29T06:02:47.296Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2019/11/21/JAVA-char-and-String/</loc>
     
-    <lastmod>2019-11-21T12:37:06.581Z</lastmod>
+    <lastmod>2019-11-29T06:02:40.327Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://yoursite.com/2019/11/19/JAVA-array/</loc>
     
-    <lastmod>2019-11-21T06:22:13.150Z</lastmod>
+    <lastmod>2019-11-29T06:02:34.367Z</lastmod>
     
   </url>
   
@@ -19,20 +40,6 @@
     <loc>http://yoursite.com/2019/11/18/rotating-array/</loc>
     
     <lastmod>2019-11-18T10:03:28.062Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2019/11/13/Summary-of-Sorting-Algorithms/</loc>
-    
-    <lastmod>2019-11-15T02:24:28.032Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2019/06/03/server%E5%AE%89%E8%A3%85%E6%A1%8C%E9%9D%A2%E5%B9%B6%E8%BF%9B%E8%A1%8C%E8%BF%9C%E7%A8%8B%E8%AE%BF%E9%97%AE/</loc>
-    
-    <lastmod>2019-11-13T11:17:44.426Z</lastmod>
     
   </url>
   
