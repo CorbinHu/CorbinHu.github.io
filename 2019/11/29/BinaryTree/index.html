@@ -96,18 +96,18 @@
 
 
 
-  <meta name="description" content="二叉树的遍历前序遍历（根-&amp;gt;左-&amp;gt;右）递归法 1234567891011private List&amp;lt;Integer&amp;gt; preorder(TreeNode root) &amp;#123;    List&amp;lt;Integer&amp;gt; res = new ArrayList&amp;lt;&amp;gt;();    preorderHelper(root, res);    return res;&amp;">
+  <meta name="description" content="&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; 本篇文章包含二叉树的相关操作：前，中，后序遍历（递归和迭代）的实现；二叉树的序列化和反序列化；根据前序和中序遍历还原二叉树；根据中序和后序遍历还原二叉树；">
 <meta name="keywords" content="java">
 <meta property="og:type" content="article">
-<meta property="og:title" content="BinaryTree">
+<meta property="og:title" content="二叉树的相关操作">
 <meta property="og:url" content="http://yoursite.com/2019/11/29/BinaryTree/index.html">
 <meta property="og:site_name" content="HBC&#39;Blog">
-<meta property="og:description" content="二叉树的遍历前序遍历（根-&amp;gt;左-&amp;gt;右）递归法 1234567891011private List&amp;lt;Integer&amp;gt; preorder(TreeNode root) &amp;#123;    List&amp;lt;Integer&amp;gt; res = new ArrayList&amp;lt;&amp;gt;();    preorderHelper(root, res);    return res;&amp;">
+<meta property="og:description" content="&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; 本篇文章包含二叉树的相关操作：前，中，后序遍历（递归和迭代）的实现；二叉树的序列化和反序列化；根据前序和中序遍历还原二叉树；根据中序和后序遍历还原二叉树；">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-04-16T08:39:27.678Z">
+<meta property="og:updated_time" content="2020-04-16T08:49:25.123Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="BinaryTree">
-<meta name="twitter:description" content="二叉树的遍历前序遍历（根-&amp;gt;左-&amp;gt;右）递归法 1234567891011private List&amp;lt;Integer&amp;gt; preorder(TreeNode root) &amp;#123;    List&amp;lt;Integer&amp;gt; res = new ArrayList&amp;lt;&amp;gt;();    preorderHelper(root, res);    return res;&amp;">
+<meta name="twitter:title" content="二叉树的相关操作">
+<meta name="twitter:description" content="&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; 本篇文章包含二叉树的相关操作：前，中，后序遍历（递归和迭代）的实现；二叉树的序列化和反序列化；根据前序和中序遍历还原二叉树；根据中序和后序遍历还原二叉树；">
 
 
 
@@ -127,7 +127,7 @@
   };
 </script>
 
-  <title>BinaryTree | HBC'Blog</title>
+  <title>二叉树的相关操作 | HBC'Blog</title>
   
 
 
@@ -343,7 +343,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">BinaryTree
+          <h1 class="post-title" itemprop="name headline">二叉树的相关操作
 
               
             
@@ -386,7 +386,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2020-04-16 16:39:27" itemprop="dateModified" datetime="2020-04-16T16:39:27+08:00">2020-04-16</time>
+                <time title="修改时间：2020-04-16 16:49:25" itemprop="dateModified" datetime="2020-04-16T16:49:25+08:00">2020-04-16</time>
               
             
           </span>
@@ -445,7 +445,8 @@
       
 
       
-        <h4 id="二叉树的遍历"><a href="#二叉树的遍历" class="headerlink" title="二叉树的遍历"></a>二叉树的遍历</h4><h5 id="前序遍历（根-gt-左-gt-右）"><a href="#前序遍历（根-gt-左-gt-右）" class="headerlink" title="前序遍历（根-&gt;左-&gt;右）"></a>前序遍历（根-&gt;左-&gt;右）</h5><p><strong>递归法</strong></p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp; 本篇文章包含二叉树的相关操作：前，中，后序遍历（递归和迭代）的实现；二叉树的序列化和反序列化；根据前序和中序遍历还原二叉树；根据中序和后序遍历还原二叉树；<br><a id="more"></a></p>
+<h4 id="二叉树的遍历"><a href="#二叉树的遍历" class="headerlink" title="二叉树的遍历"></a>二叉树的遍历</h4><h5 id="前序遍历（根-gt-左-gt-右）"><a href="#前序遍历（根-gt-左-gt-右）" class="headerlink" title="前序遍历（根-&gt;左-&gt;右）"></a>前序遍历（根-&gt;左-&gt;右）</h5><p><strong>递归法</strong></p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> List&lt;Integer&gt; <span class="title">preorder</span><span class="params">(TreeNode root)</span> </span>&#123;</span><br><span class="line">    List&lt;Integer&gt; res = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">    preorderHelper(root, res);</span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">preorderHelper</span><span class="params">(TreeNode root, List&lt;Integer&gt; res)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (root == <span class="keyword">null</span>) <span class="keyword">return</span>;</span><br><span class="line">    res.add(root.val);</span><br><span class="line">    <span class="keyword">if</span> (root.left != <span class="keyword">null</span>) preorderHelper(root.left, res);</span><br><span class="line">    <span class="keyword">if</span> (root.right != <span class="keyword">null</span>) preorderHelper(root.right, res);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p><strong>迭代法</strong><br>算法思想：<br>（1）先将根节点插入栈中。<br>（2）若栈不为空，则将栈定元素出栈<code>node</code>。<br>（3）将<code>node</code>的值插入列表尾；若<code>node.left!=null</code>，则将左节点压入栈；若<code>node.right!=null</code>，则将右节点压入栈。递归至栈为空。</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> List&lt;Integer&gt; <span class="title">preorderIteration</span><span class="params">(TreeNode root)</span> </span>&#123;</span><br><span class="line">    List&lt;Integer&gt; res = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">    <span class="keyword">if</span> (root==<span class="keyword">null</span>) <span class="keyword">return</span> res;</span><br><span class="line">    Stack&lt;TreeNode&gt; stack = <span class="keyword">new</span> Stack&lt;&gt;();</span><br><span class="line">    stack.push(root);</span><br><span class="line">    <span class="keyword">while</span> (!stack.empty())&#123;</span><br><span class="line">        TreeNode node = stack.pop();</span><br><span class="line">        res.add(node.val);</span><br><span class="line">        <span class="keyword">if</span> (node.right!=<span class="keyword">null</span>) stack.push(node.right);</span><br><span class="line">        <span class="keyword">if</span> (node.left!=<span class="keyword">null</span>) stack.push(node.left);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
