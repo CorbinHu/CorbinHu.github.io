@@ -2,16 +2,44 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/2019/11/13/Summary-of-Sorting-Algorithms/</loc>
+    
+    <lastmod>2020-05-01T03:06:04.579Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2019/11/18/rotating-array/</loc>
+    
+    <lastmod>2020-05-01T03:05:32.132Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2019/11/29/BinaryTree/</loc>
+    
+    <lastmod>2020-05-01T03:05:22.985Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2019/11/21/JAVA-char-and-String/</loc>
+    
+    <lastmod>2020-05-01T03:05:07.689Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/categories/index.html</loc>
     
-    <lastmod>2020-05-01T02:55:35.832Z</lastmod>
+    <lastmod>2020-05-01T03:03:31.162Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://yoursite.com/tags/index.html</loc>
     
-    <lastmod>2020-05-01T02:54:46.817Z</lastmod>
+    <lastmod>2020-05-01T03:02:17.444Z</lastmod>
     
   </url>
   
@@ -23,13 +51,6 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/2019/11/13/Summary-of-Sorting-Algorithms/</loc>
-    
-    <lastmod>2020-05-01T02:45:53.568Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://yoursite.com/2019/06/03/server%E5%AE%89%E8%A3%85%E6%A1%8C%E9%9D%A2%E5%B9%B6%E8%BF%9B%E8%A1%8C%E8%BF%9C%E7%A8%8B%E8%AE%BF%E9%97%AE/</loc>
     
     <lastmod>2020-05-01T02:45:48.142Z</lastmod>
@@ -37,30 +58,9 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/2019/11/18/rotating-array/</loc>
-    
-    <lastmod>2020-05-01T02:45:42.914Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2019/11/29/BinaryTree/</loc>
-    
-    <lastmod>2020-05-01T02:45:28.540Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://yoursite.com/2019/11/19/JAVA-array/</loc>
     
     <lastmod>2020-05-01T02:45:22.654Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2019/11/21/JAVA-char-and-String/</loc>
-    
-    <lastmod>2020-05-01T02:45:07.256Z</lastmod>
     
   </url>
   
