@@ -322,6 +322,188 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/04/21/Backtracking-Algorithm/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="CorbinHu">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="HBC'Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2020/04/21/Backtracking-Algorithm/" class="post-title-link" itemprop="url">Backtracking Algorithm</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2020-04-21 19:40:13" itemprop="dateCreated datePublished" datetime="2020-04-21T19:40:13+08:00">2020-04-21</time>
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Algorithms/" itemprop="url" rel="index"><span itemprop="name">Algorithms</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h4 id="回溯搜索算法"><a href="#回溯搜索算法" class="headerlink" title="回溯搜索算法"></a>回溯搜索算法</h4><p>&nbsp;&nbsp;&nbsp;&nbsp;回溯搜索算法也就是树形图上的深度优先搜索遍历(DFS)，只不过多le 步———<b>状态重置</b>，也是递归算法的运用，正因为递归有“回退”的过程，才可以更好的进行“状态重置”。<br>&nbsp;&nbsp;&nbsp;&nbsp;<b>可用回溯算法解题的题型：</b>找出所有可能的解。<br>&nbsp;&nbsp;&nbsp;&nbsp;<b>回溯算法解决问题的特点：</b>解决问题的方法有多种，每种方法又分多步完成，使用深度优先遍历方法得到所有的解。<br>&nbsp;&nbsp;&nbsp;&nbsp;<b>解题步骤：</b>根据题意画出树形图 -&gt; 分析树形图，找到需要重置的状态变量和找出多余的遍历（剪枝） -&gt; 根据上一步分析的条件，进行深度优先遍历树。</p>
+<h4 id="LeetCode-T46-全排列"><a href="#LeetCode-T46-全排列" class="headerlink" title="LeetCode T46 全排列"></a><a href="https://leetcode-cn.com/problems/permutations/" target="_blank" rel="noopener">LeetCode T46 全排列</a></h4><p>&nbsp;&nbsp;&nbsp;&nbsp;题目描述：给定一个<b>没有重复数字</b>的序列，求序列的全排序。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">示例：</span><br><span class="line">输入：[1,2,3]</span><br><span class="line">输出：</span><br><span class="line">    [</span><br><span class="line">      [1, 2, 3],</span><br><span class="line">      [1, 3, 2],</span><br><span class="line">      [2, 1, 3],</span><br><span class="line">      [2, 3, 1],</span><br><span class="line">      [3, 1, 2],</span><br><span class="line">      [3, 2, 1]</span><br><span class="line">    ]</span><br></pre></td></tr></table></figure></p>
+<p><img src="/2020/04/21/Backtracking-Algorithm/LeetCode46.png" alt="树状图"><br>&nbsp;&nbsp;&nbsp;&nbsp;需要设计的状态变量：① 递归树到了几层（已经使用了几个数）depth；② 从跟节点到叶子节点的路径（一个全排列），哪些数是否用过，used。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> List&lt;List&lt;Integer&gt;&gt; permute(<span class="keyword">int</span>[] nums) &#123;</span><br><span class="line">    List&lt;List&lt;Integer&gt;&gt; res = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">    <span class="keyword">int</span> len = nums.length;</span><br><span class="line">    <span class="keyword">if</span> (len == <span class="number">0</span>) <span class="keyword">return</span> res;</span><br><span class="line">    List&lt;Integer&gt; path = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">    <span class="keyword">boolean</span>[] used = <span class="keyword">new</span> <span class="keyword">boolean</span>[len];</span><br><span class="line">    dfs(nums, len, <span class="number">0</span>, used, path, res);</span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> nums   给定序列</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> len    冗余变量，作为参数传递不用每次都从 nums 中读取 length 属性值</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> depth  冗余变量，作为参数传递不用每次都从 path 中调用 size() 方法</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> used   记录到当前节点的路径使用了哪些元素</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> path   从根结点到叶子结点的路径</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> res    保存所以路径的集合</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> len, <span class="keyword">int</span> depth, <span class="keyword">boolean</span>[] used, List&lt;Integer&gt; path, List&lt;List&lt;Integer&gt;&gt; res)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (depth == len) &#123;</span><br><span class="line">        res.add(<span class="keyword">new</span> ArrayList&lt;&gt;(path));</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; len; i++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (used[i]) &#123;</span><br><span class="line">            <span class="keyword">continue</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        used[i] = <span class="keyword">true</span>;</span><br><span class="line">        path.add(nums[i]);</span><br><span class="line">        dfs(nums, len, depth + <span class="number">1</span>, used, path, res);</span><br><span class="line">        path.remove(path.size()-<span class="number">1</span>);</span><br><span class="line">        used[i] = <span class="keyword">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="LeedCode-T47-全排列II"><a href="#LeedCode-T47-全排列II" class="headerlink" title="LeedCode T47 全排列II"></a><a href="https://leetcode-cn.com/problems/permutations-ii/" target="_blank" rel="noopener">LeedCode T47 全排列II</a></h4><p>&nbsp;&nbsp;&nbsp;&nbsp;题目描述：给定一个<b>有重复数字</b>的序列，求所有不重复的全排序。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">输入: [1, 1, 2]</span><br><span class="line">输出:</span><br><span class="line">[</span><br><span class="line">  [1, 1, 2],</span><br><span class="line">  [1, 2, 1],</span><br><span class="line">  [2, 1, 1]</span><br><span class="line">]</span><br></pre></td></tr></table></figure></p>
+<p><img src="/2020/04/21/Backtracking-Algorithm/LeetCode47.png" alt="树状图"><br>&nbsp;&nbsp;&nbsp;&nbsp;需要设计的转态变量和上一题相同，但需要剪枝 ——— 删除重复的全排列。<b>由上图分析可知，重复发生在，这一轮考虑选择数与上一轮选择的数相同，并且上一轮搜索的那个值因为在回退的过程中，已经被撤销，应该剪去的是这样的枝叶。</b></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> List&lt;List&lt;Integer&gt;&gt; permute(<span class="keyword">int</span>[] nums) &#123;</span><br><span class="line">    List&lt;List&lt;Integer&gt;&gt; res = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">    <span class="keyword">int</span> len = nums.length;</span><br><span class="line">    <span class="keyword">if</span> (len == <span class="number">0</span>) <span class="keyword">return</span> res;</span><br><span class="line">    List&lt;Integer&gt; path = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">    <span class="keyword">boolean</span>[] used = <span class="keyword">new</span> <span class="keyword">boolean</span>[len];</span><br><span class="line">    dfs(nums, len, <span class="number">0</span>, used, path, res);</span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> len, <span class="keyword">int</span> depth, <span class="keyword">boolean</span>[] used, List&lt;Integer&gt; path, List&lt;List&lt;Integer&gt;&gt; res)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (depth == len) &#123;</span><br><span class="line">        res.add(<span class="keyword">new</span> ArrayList&lt;&gt;(path));</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; len; i++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (!used[i]) &#123;</span><br><span class="line">            <span class="comment">// 剪枝 --- 判断这一轮考虑选取的数据是否与上一轮的选取的数据相等</span></span><br><span class="line">            <span class="keyword">if</span>(i&gt;<span class="number">0</span> &amp;&amp; nums[i] == nums[j] &amp;&amp; !used[i-<span class="number">1</span>])&#123;</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            used[i] = <span class="keyword">true</span>;</span><br><span class="line">            path.add(nums[i]);</span><br><span class="line">            dfs(nums, len, depth + <span class="number">1</span>, used, path, res);</span><br><span class="line">            path.remove(path.size()-<span class="number">1</span>);</span><br><span class="line">            used[i] = <span class="keyword">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;<strong>总结：</strong>T46和T47类似，T47序列中元素可重复，全排序不可重复，用T46的方法解题，便会产生重复的全排列，因此需要在搜索的过程中进行剪枝操作。<strong>遇到元素重复，结果不可重复</strong>需要进行剪枝，方法便是判断这一轮考虑选取的数据是否与上一轮的选取的数据相等，相等则跳过。<strong>需要剪枝，则对候选序列进行排序</strong>，排序的作用：相同的数的索引连续，便于剪枝。</p>
+<h4 id="LeetCode-T39-组合总和"><a href="#LeetCode-T39-组合总和" class="headerlink" title="LeetCode T39 组合总和"></a><a href="https://leetcode-cn.com/problems/combination-sum/" target="_blank" rel="noopener">LeetCode T39 组合总和</a></h4><p>&nbsp;&nbsp;&nbsp;&nbsp;题目描述：给定一个<strong>无重复元素</strong>的数组 <code>candidates</code>和一个目标数 <code>target</code>，找出 <code>candidates</code>中所有可以使数字和为 <code>target</code>的组合。<strong><code>candidates</code>中的数字可以无限制重复被选取。解集中不能有重复的组合</strong>。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">输入: candidates = [2, 3, 6, 7], target = 7,</span><br><span class="line">所求解集为:</span><br><span class="line">[</span><br><span class="line">  [7],</span><br><span class="line">  [2, 2, 3]</span><br><span class="line">]</span><br></pre></td></tr></table></figure></p>
+<p><img src="/2020/04/21/Backtracking-Algorithm/LeetCode39.png" alt="树形图"><br>&nbsp;&nbsp;&nbsp;&nbsp;分析树形图，我们可以看到由于较深层次的节点值选取了之前选取过的元素（选出的数相同，只是选取的先后顺序不一样）造成了重复的组合，因此需要<strong>设置每一轮搜索的起点</strong>。<br>&nbsp;&nbsp;&nbsp;&nbsp;需要设计的状态量：每一轮需要比较的目标值<code>target</code>；每一轮搜索的起点；</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> List&lt;List&lt;Integer&gt;&gt; combinationSum(<span class="keyword">int</span>[] candidates, <span class="keyword">int</span> target) &#123;</span><br><span class="line">    List&lt;List&lt;Integer&gt;&gt; res = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">    <span class="keyword">int</span> len = candidates.length;</span><br><span class="line">    <span class="keyword">if</span> (len == <span class="number">0</span>) <span class="keyword">return</span> res;</span><br><span class="line">    Arrays.sort(candidates); <span class="comment">// 排序可提前终止搜索</span></span><br><span class="line">    dfs(candidates, len, target, <span class="number">0</span>, <span class="keyword">new</span> ArrayList&lt;&gt;(), res);</span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> candidates    候选数列</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> len           冗余变量，候选数列的长度</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> remain        剩余的数值</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> begin         本轮搜索的起点下标</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> path          从根结点到任意结点的路径</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> res           结果集变量</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span>[] candidates, <span class="keyword">int</span> len, <span class="keyword">int</span> remain, <span class="keyword">int</span> begin, List&lt;Integer&gt; path, List&lt;List&lt;Integer&gt;&gt; res)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (remain == <span class="number">0</span>) &#123;</span><br><span class="line">        res.add(<span class="keyword">new</span> ArrayList&lt;&gt;(path));</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 每次搜索的起点不能比上一次还早--规定下标索引</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = begin; i &lt; len; i++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (remain &lt; candidates[i]) &#123;</span><br><span class="line">            <span class="keyword">return</span>; </span><br><span class="line">        &#125;</span><br><span class="line">        path.add(candidates[i]);</span><br><span class="line">        <span class="comment">// 【关键】因为元素可以重复使用，这里递归传递下去的是 i 而不是 i + 1</span></span><br><span class="line">        dfs(candidates, len, remain - candidates[i], i, path, res);</span><br><span class="line">        path.remove(path.size() - <span class="number">1</span>); <span class="comment">// 恢复状态</span></span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="LeetCode-T40-组合总和II"><a href="#LeetCode-T40-组合总和II" class="headerlink" title="LeetCode T40 组合总和II"></a><a href="https://leetcode-cn.com/problems/combination-sum-ii/" target="_blank" rel="noopener">LeetCode T40 组合总和II</a></h4><p>&nbsp;&nbsp;&nbsp;&nbsp;题目描述：给定一个<strong>有重复元素</strong>的数组 <code>candidates</code>和一个目标数 <code>target</code>，找出 <code>candidates</code>中所有可以使数字和为 <code>target</code>的组合。<strong><code>candidates</code>中的数字只能选取一次。解集中不能有重复的组合</strong>。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">输入: candidates = [2,5,2,1,2], target = 5,</span><br><span class="line">所求解集为:</span><br><span class="line">[</span><br><span class="line">  [1, 2, 2],</span><br><span class="line">  [5]</span><br><span class="line">]</span><br></pre></td></tr></table></figure></p>
+<p><img src="/2020/04/21/Backtracking-Algorithm/LeetCode40.png" alt="树形图"><br>&nbsp;&nbsp;&nbsp;&nbsp;需要设计的状态变量：每一轮需要比较的<code>target</code>值；每一轮的搜索起点。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> List&lt;List&lt;Integer&gt;&gt; combinationSum2(<span class="keyword">int</span>[] candidates, <span class="keyword">int</span> target) &#123;</span><br><span class="line">    List&lt;List&lt;Integer&gt;&gt; res = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">    <span class="keyword">int</span> len = candidates.length;</span><br><span class="line">    <span class="keyword">if</span> (len == <span class="number">0</span>) <span class="keyword">return</span> res;</span><br><span class="line">    Arrays.sort(candidates); <span class="comment">// 方便剪枝和提前终止循环</span></span><br><span class="line">    dfs(candidates, len, target, <span class="number">0</span>, <span class="keyword">new</span> ArrayList&lt;&gt;(), res);</span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span>[] candidates, <span class="keyword">int</span> len, <span class="keyword">int</span> target, <span class="keyword">int</span> begin, List&lt;Integer&gt; path, List&lt;List&lt;Integer&gt;&gt; res)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (target == <span class="number">0</span>) &#123;</span><br><span class="line">        res.add(<span class="keyword">new</span> ArrayList&lt;&gt;(path));</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 每次搜索的起点都要比上衣一次大</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = begin; i &lt; len; i++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (target - candidates[i] &lt; <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 这一步之所以能够生效，其前提是数组一定是排好序的;去除重复的路径</span></span><br><span class="line">        <span class="comment">// 一定要注意是i &gt; begin 而不是 i &gt; 0</span></span><br><span class="line">        <span class="keyword">if</span> (i &gt; begin &amp;&amp; candidates[i] == candidates[i - <span class="number">1</span>]) &#123;</span><br><span class="line">            <span class="keyword">continue</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        path.add(candidates[i]);</span><br><span class="line">        <span class="comment">// 【关键】因为数组中的数只能使用一次，每轮搜索的起始索引都应该比上一轮的大 i+1</span></span><br><span class="line">        dfs(candidates, len, target - candidates[i], i + <span class="number">1</span>, path, res);</span><br><span class="line">        path.remove(path.size()-<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;<strong>总结：</strong>T39和T40的区别是：① 数组元素能否重复取；这点决定每轮搜索的起始索引报不报扩上一轮的搜索起点；能重复，则包括；不能重复则不包括。代码的体现便是，状态变量<code>begin</code>，每次递归传递的是<code>i</code>还是<code>i + 1</code>。<br>② 数组是否有重复元素；<strong>有重复便用排序</strong>，再进行剪枝。判断这轮考虑选取的数和上一轮选取数是否相同。</p>
+<h4 id="LeetCode-T77-组合"><a href="#LeetCode-T77-组合" class="headerlink" title="LeetCode T77 组合"></a><a href="https://leetcode-cn.com/problems/combinations/" target="_blank" rel="noopener">LeetCode T77 组合</a></h4><p>&nbsp;&nbsp;&nbsp;&nbsp;题目描述：给定两个整数 n 和 k，返回 1 … n 中所有可能的 k 个数的组合。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">输入: n = 4, k = 2</span><br><span class="line">输出:</span><br><span class="line">[</span><br><span class="line">  [2,4],</span><br><span class="line">  [3,4],</span><br><span class="line">  [2,3],</span><br><span class="line">  [1,2],</span><br><span class="line">  [1,3],</span><br><span class="line">  [1,4],</span><br><span class="line">]</span><br></pre></td></tr></table></figure></p>
+<p><img src="/2020/04/21/Backtracking-Algorithm/LeetCode77.jpg" alt="树状图"><br>&nbsp;&nbsp;&nbsp;&nbsp;设计状态变量：每轮搜索的起点（数的索引）<code>begin</code>；保存从根节点到叶子节点的路径<code>path</code>;<br>&nbsp;&nbsp;&nbsp;&nbsp;重点是分析每轮起点能取到的最大值（剪去不必要的循环）。<br>&nbsp;&nbsp;&nbsp;&nbsp;由上图可知，当<code>path</code>为<code>[1,4,5],[2,4,5],[3,4,5]</code>时，后续的循环就不必要执行。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">for (int i = begin; i &lt;= n; i++) &#123;</span><br><span class="line">    path.add(i);</span><br><span class="line">    dfs(n, k, depth + 1, i + 1, path);</span><br><span class="line">    path.remove(path.size() - 1);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;上述循环是从<code>[i,n]</code>这个区间里找到<code>k-path.size()</code>个元素，但<code>i&lt;=n</code>不是每次都要循环完，<code>i</code>有上限。<br>当选定了一个元素，即 <code>path.size() == 1</code> 的时候，接下来要选择 2 个元素，<code>i</code>最大的值是 4 ，因为从 5 开始选择，就无解了；<br>当选定了两个元素，即<code>path.size() == 2</code> 的时候，接下来要选择 1 个元素， <code>i</code> 最大的值是 5 ，因为从 6 开始选择，就无解了。<br>&nbsp;&nbsp;&nbsp;&nbsp;再如：如果<code>n = 6 ，k = 4</code><br><code>path.size() == 1</code> 的时候，接下来要选择 3 个元素，<code>i</code> 最大的值是 4，最后一个被选的是<code>[4,5,6]</code>；<br><code>path.size() == 2</code> 的时候，接下来要选择 2 个元素，<code>i</code> 最大的值是 5，最后一个被选的是<code>[5,6]</code>；<br><code>path.size() == 3</code> 的时候，接下来要选择 1 个元素，<code>i</code> 最大的值是 6，最后一个被选的是<code>[6]</code>；<br>所以<code>max(i)=n-(k-path.size())+1</code>。<br>因此，剪枝过程就是：把 <code>i &lt;= n</code> 改成<code>i &lt;= n - (k - path.size()) + 1</code> 。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> List&lt;List&lt;Integer&gt;&gt; res = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> List&lt;List&lt;Integer&gt;&gt; combine(<span class="keyword">int</span> n, <span class="keyword">int</span> k) &#123;</span><br><span class="line">    <span class="keyword">if</span> (n == <span class="number">0</span>) <span class="keyword">return</span> res;</span><br><span class="line">    List&lt;Integer&gt; path = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">    dfs(n, k, <span class="number">0</span>, <span class="number">1</span>, path);</span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> n, <span class="keyword">int</span> k, <span class="keyword">int</span> depth, <span class="keyword">int</span> begin, List&lt;Integer&gt; path)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (depth == k) &#123;</span><br><span class="line">        res.add(<span class="keyword">new</span> ArrayList&lt;&gt;(path));</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = begin; i &lt;= n - (k - path.size()) + <span class="number">1</span>; i++) &#123;</span><br><span class="line">        path.add(i);</span><br><span class="line">        dfs(n, k, depth + <span class="number">1</span>, i + <span class="number">1</span>, path);</span><br><span class="line">        path.remove(path.size() - <span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="LeetCode-T78-子集"><a href="#LeetCode-T78-子集" class="headerlink" title="LeetCode T78 子集"></a><a href="https://leetcode-cn.com/problems/subsets/" target="_blank" rel="noopener">LeetCode T78 子集</a></h4><p>&nbsp;&nbsp;&nbsp;&nbsp;题目描述：给定一组<strong>不含重复元素</strong>的整数数组 nums，返回该数组所有可能的子集（幂集）。<br>说明：<strong>解集不能包含重复的子集</strong>。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">输入: nums = [1,2,3]</span><br><span class="line">输出:</span><br><span class="line">[</span><br><span class="line">  [3],</span><br><span class="line">    [1],</span><br><span class="line">    [2],</span><br><span class="line">    [1,2,3],</span><br><span class="line">    [1,3],</span><br><span class="line">    [2,3],</span><br><span class="line">    [1,2],</span><br><span class="line">    []</span><br><span class="line">]</span><br></pre></td></tr></table></figure></p>
+<p><img src="/2020/04/21/Backtracking-Algorithm/LeetCode78.jpg" alt="树形图"><br>&nbsp;&nbsp;&nbsp;&nbsp;设计状态变量：每轮搜索的起点（数的索引）<code>begin</code>；保存从根节点到叶子节点的路径<code>path</code>;<br>注意分析每轮起点索引能取到的最大值（剪去不必要的循环），和LeetCode T77 方法相同。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> List&lt;List&lt;Integer&gt;&gt; res = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line"><span class="keyword">public</span> List&lt;List&lt;Integer&gt;&gt; subsets(<span class="keyword">int</span>[] nums) &#123;</span><br><span class="line">    <span class="keyword">int</span> len = nums.length;</span><br><span class="line">    <span class="keyword">if</span> (len == <span class="number">0</span>) <span class="keyword">return</span> res;</span><br><span class="line">    List&lt;Integer&gt; path = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt;= len; i++) &#123;</span><br><span class="line">        dfs(nums, len, i, <span class="number">0</span>, <span class="number">0</span>, path);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> nums  候选数组</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> len   冗余变量，候选数组长度</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> k     子集中元素个数</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> depth 冗余变量，进行的层数，也可以用path.size()表示</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> begin 每轮搜索的起始下表索引</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> path  保存根节点到叶子节点的路径</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> len, <span class="keyword">int</span> k, <span class="keyword">int</span> depth, <span class="keyword">int</span> begin, List&lt;Integer&gt; path)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (depth == k) &#123;</span><br><span class="line">        res.add(<span class="keyword">new</span> ArrayList&lt;&gt;(path));</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 【关键】 分析 i 的最大值，减少不必要的循环，这里 i &lt; len 也行，但是进行了不必要的循环</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = begin; i &lt; len - (k - depth) + <span class="number">1</span>; i++) &#123;</span><br><span class="line">        path.add(nums[i]);</span><br><span class="line">        <span class="comment">// 【关键】 递归传递每轮搜索的起点索引，保证这轮考虑数的索引比上轮大</span></span><br><span class="line">        dfs(nums, len, k, depth + <span class="number">1</span>, i + <span class="number">1</span>, path);</span><br><span class="line">        path.remove(path.size() - <span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="LeetCode-T90-子集II"><a href="#LeetCode-T90-子集II" class="headerlink" title="LeetCode T90 子集II"></a><a href="https://leetcode-cn.com/problems/subsets-ii/" target="_blank" rel="noopener">LeetCode T90 子集II</a></h4><p>&nbsp;&nbsp;&nbsp;&nbsp;题目描述：给定一组可能<strong>包含重复元素</strong>的整数数组 nums，返回该数组所有可能的子集（幂集）。<br>说明：<strong>解集不能包含重复的子集</strong>。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">输入: [1,2,2]</span><br><span class="line">输出:</span><br><span class="line">[</span><br><span class="line">  [2],</span><br><span class="line">  [1],</span><br><span class="line">  [1,2,2],</span><br><span class="line">  [2,2],</span><br><span class="line">  [1,2],</span><br><span class="line">  []</span><br><span class="line">]</span><br></pre></td></tr></table></figure></p>
+<p><img src="/2020/04/21/Backtracking-Algorithm/LeetCode90.jpg" alt="树状图"><br>&nbsp;&nbsp;&nbsp;&nbsp;设计状态变量：每轮搜索的起点（数的索引）<code>begin</code>；保存从根节点到叶子节点的路径<code>path</code>;</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> List&lt;List&lt;Integer&gt;&gt; res = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> List&lt;List&lt;Integer&gt;&gt; subsetsWithDup(<span class="keyword">int</span>[] nums) &#123;</span><br><span class="line">    <span class="keyword">int</span> len = nums.length;</span><br><span class="line">    <span class="keyword">if</span> (len == <span class="number">0</span>) <span class="keyword">return</span> res;</span><br><span class="line">    Arrays.sort(nums); <span class="comment">// 方便剪枝</span></span><br><span class="line">    List&lt;Integer&gt; path = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt;= len; i++) &#123;</span><br><span class="line">        dfs(nums, len, i, <span class="number">0</span>, <span class="number">0</span>, path);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> len, <span class="keyword">int</span> k, <span class="keyword">int</span> depth, <span class="keyword">int</span> begin, List&lt;Integer&gt; path)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (depth == k) &#123;</span><br><span class="line">        res.add(<span class="keyword">new</span> ArrayList&lt;&gt;(path));</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 【关键】 分析 i 的最大值，减少不必要的循环，这里 i &lt; len 也行，但是进行了不必要的循环</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = begin; i &lt; len - (k - depth) + <span class="number">1</span>; i++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (i &gt; begin &amp;&amp; nums[i] == nums[i - <span class="number">1</span>]) &#123;</span><br><span class="line">            <span class="keyword">continue</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        path.add(nums[i]);</span><br><span class="line">        <span class="comment">// 【关键】 递归传递每轮搜索的起点索引，保证这轮考虑数的索引比上轮大</span></span><br><span class="line">        dfs(nums, len, k, depth + <span class="number">1</span>, i + <span class="number">1</span>, path);</span><br><span class="line">        path.remove(path.size() - <span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><p>&nbsp;&nbsp;&nbsp;&nbsp;1）题目规定序列有重复元素，结果输出不重复的组合，先使用排序，使相同元素索引连续，便于剪枝。剪枝的方法是：判断这轮考虑选出的数是否与上一轮选取的数相等。<br>&nbsp;&nbsp;&nbsp;&nbsp;2）题目规定不能重复使用元素时，需要规定转态变量每轮搜索的起始下标索引。方法是：每轮搜索考虑的下标所以必须必上一轮选取数的下标索引大。<br>&nbsp;&nbsp;&nbsp;&nbsp;3）题目规定是从序列选取部分数据而不是全部数据时，需要分析循环变量的最大值，最大值为 <code>n - (k - path().size) + 1</code>。</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/04/18/MapReduce-Details/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1783,166 +1965,13 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/26/利用hexo+github搭建博客/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="CorbinHu">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="HBC'Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2017/05/26/利用hexo+github搭建博客/" class="post-title-link" itemprop="url">利用hexo+github搭建博客</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2017-05-26 12:12:57" itemprop="dateCreated datePublished" datetime="2017-05-26T12:12:57+08:00">2017-05-26</time>
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Hexo/" itemprop="url" rel="index"><span itemprop="name">Hexo</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>参考以下几个帖子：<br><a href="https://www.jianshu.com/p/15ae47eddc56" target="_blank" rel="noopener">小白独立搭建博客—Github Pages和Hexo简明教程</a><br><a href="https://www.jianshu.com/p/9f0e90cc32c2" target="_blank" rel="noopener">Hexo-NexT配置超炫网页效果</a><br><a href="http://www.cnblogs.com/jarson-7426/p/5660424.html" target="_blank" rel="noopener">hexo博客－性能优化</a><br><a href="https://yq.aliyun.com/articles/8608" target="_blank" rel="noopener">Hexo折腾记——性能优化篇</a></p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+  </nav>
+
 
 
           </div>
@@ -1982,7 +2011,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">10</span>
+                    <span class="site-state-item-count">11</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -2309,9 +2338,9 @@
       
     
       
-        
-      
     
+      
+        
       
     
       
