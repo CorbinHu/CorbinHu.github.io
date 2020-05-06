@@ -266,7 +266,7 @@ h6 code {
   }
 }
 p {
-  margin: 0 0 20px 0;
+  margin: 0 0 10px 0;
 }
 a,
 span.exturl {
@@ -1321,9 +1321,6 @@ pre .javascript .function {
 }
 .posts-expand .post-body img {
   box-sizing: border-box;
-  margin: 0 auto 25px;
-  padding: 3px;
-  border: 1px solid #ddd;
 }
 @media (max-width: 767px) {
   .posts-collapse {
@@ -1764,7 +1761,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #b4a72b;
+  background: #292f1d;
 }
 .feed-link,
 .chat {
