@@ -104,7 +104,7 @@
 <meta property="og:site_name" content="HBC&#39;Blog">
 <meta property="og:description" content="&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;数据倾斜就是在分布式计算的时候，数据的分散度不够，导致大量的数据集中到一台或几台机器上计算，导致整个任务的计算速度及效率大大下降。本文主要分析出现数据倾斜的原因及解决方案。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-05-09T14:45:44.186Z">
+<meta property="og:updated_time" content="2020-05-09T14:50:22.859Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MapReduce中数据倾斜的原因及解决方案">
 <meta name="twitter:description" content="&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;数据倾斜就是在分布式计算的时候，数据的分散度不够，导致大量的数据集中到一台或几台机器上计算，导致整个任务的计算速度及效率大大下降。本文主要分析出现数据倾斜的原因及解决方案。">
@@ -431,9 +431,11 @@
       
         <p>&nbsp;&nbsp;&nbsp;&nbsp;数据倾斜就是在分布式计算的时候，数据的分散度不够，导致大量的数据集中到一台或几台机器上计算，导致整个任务的计算速度及效率大大下降。本文主要分析出现数据倾斜的原因及解决方案。<br><a id="more"></a></p>
 <h4 id="数据倾斜的原理及体现"><a href="#数据倾斜的原理及体现" class="headerlink" title="数据倾斜的原理及体现"></a>数据倾斜的原理及体现</h4><p>&nbsp;&nbsp;&nbsp;&nbsp;在<code>MapReduce</code>的shuffle阶段，将相同的<code>key</code>拉取到一个<code>Reduce</code>上计算，若某一种<code>key</code>的数据量远远大于其他的<code>key</code>的数据量，造成某一个<code>Reduce Task</code>计算量过大，计算耗时较长，导致整个任务的计算速度及效率大大下降。因此数据倾斜一般有两种表现：① 大部分<code>Reduce Task</code>执行完成特别快，某一个<code>Reduce Task</code>执行特别慢，耗时长；② 某一个<code>Reduce Task</code>出现<code>OOM</code>，内存溢出，任务失败。</p>
-<h4 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h4><h5 id="MapReduce中的数据倾斜解决方案"><a href="#MapReduce中的数据倾斜解决方案" class="headerlink" title="MapReduce中的数据倾斜解决方案"></a>MapReduce中的数据倾斜解决方案</h5><ol>
-<li>设定<code>combiner</code>。在<code>map shuffle</code>阶段对数据压缩，相当于做一次<code>Reduce</code>，相同的key先进行聚合运算。从而减少流向<code>Reduce</code>端的文件数量和数据量。</li>
-<li>分析导致数据倾斜的<code>key</code>，在<code>Map</code>阶段将造成倾斜的<code>key</code>分成多组，例如<code>aaa</code> 这个 <code>key</code>，<code>map</code> 时随机在<code>aaa</code> 后面加上 1,2,3,4 这四个数字之一，把<code>key</code> 先分成四组，先进行一次运算，之后再恢复 key 进行最终运算。<h5 id="Hive-中数据倾斜的解决方案"><a href="#Hive-中数据倾斜的解决方案" class="headerlink" title="Hive 中数据倾斜的解决方案"></a>Hive 中数据倾斜的解决方案</h5></li>
+<h4 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h4><h5 id="MapReduce中的数据倾斜解决方案"><a href="#MapReduce中的数据倾斜解决方案" class="headerlink" title="MapReduce中的数据倾斜解决方案"></a><code>MapReduce</code>中的数据倾斜解决方案</h5><ol>
+<li>自定义<code>combiner</code>类。在<code>map shuffle</code>阶段对数据压缩，相当于做一次<code>Reduce</code>，相同的key先进行聚合运算。从而减少流向<code>Reduce</code>端的文件数量和数据量。</li>
+<li>分析导致数据倾斜的<code>key</code>，在<code>Map</code>阶段将造成倾斜的<code>key</code>分成多组，例如<code>aaa</code> 这个 <code>key</code>，<code>map</code> 时随机在<code>aaa</code> 后面加上 1,2,3,4 这四个数字之一，把<code>key</code> 先分成四组，先进行一次运算，之后再恢复 key 进行最终运算。</li>
+</ol>
+<h5 id="Hive-中数据倾斜的解决方案"><a href="#Hive-中数据倾斜的解决方案" class="headerlink" title="Hive 中数据倾斜的解决方案"></a><code>Hive</code> 中数据倾斜的解决方案</h5><ol>
 <li>参数调优<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">set hive.map.aggr = true;</span><br><span class="line">set hive.groupby.skewindata = true;</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
