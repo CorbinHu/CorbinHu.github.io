@@ -2,9 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/2020/05/05/Advanced-Query-in-Hive/</loc>
+    
+    <lastmod>2020-05-12T14:50:47.175Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2020/04/25/Data-Tilt-Reasons-and-Solutions-in-MapReduce/</loc>
     
-    <lastmod>2020-05-09T14:54:20.683Z</lastmod>
+    <lastmod>2020-05-09T15:02:33.958Z</lastmod>
     
   </url>
   
